@@ -1,37 +1,32 @@
 <?php
 session_start();
 
-// Check if the user is an admin (Replace with actual authentication)
+// Check if the user is an admin
 if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] !== true) {
-    echo json_encode(["success" => false, "error" => "Unauthorized access"]);
-    exit;
+    die(json_encode(["status" => "error", "message" => "Unauthorized access!"]));
 }
 
-// Check if an image is uploaded
-if (!isset($_FILES['image']) || $_FILES['image']['error'] != UPLOAD_ERR_OK) {
-    echo json_encode(["success" => false, "error" => "Image upload failed"]);
-    exit;
+$targetDir = "uploads/";
+if (!file_exists($targetDir)) {
+    mkdir($targetDir, 0777, true);
 }
 
-$uploadDir = "gallery/";
-if (!file_exists($uploadDir)) {
-    mkdir($uploadDir, 0777, true);
-}
+if (!empty($_FILES["image"]["name"])) {
+    $fileName = basename($_FILES["image"]["name"]);
+    $targetFilePath = $targetDir . $fileName;
+    $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
 
-$allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-$fileType = mime_content_type($_FILES['image']['tmp_name']);
-
-if (!in_array($fileType, $allowedTypes)) {
-    echo json_encode(["success" => false, "error" => "Invalid file type"]);
-    exit;
-}
-
-$fileName = time() . "_" . basename($_FILES["image"]["name"]);
-$filePath = $uploadDir . $fileName;
-
-if (move_uploaded_file($_FILES["image"]["tmp_name"], $filePath)) {
-    echo json_encode(["success" => true, "url" => $filePath]);
+    $allowedTypes = ["jpg", "jpeg", "png", "gif"];
+    if (in_array(strtolower($fileType), $allowedTypes)) {
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFilePath)) {
+            echo json_encode(["status" => "success", "message" => "Image uploaded!", "imagePath" => $targetFilePath]);
+        } else {
+            echo json_encode(["status" => "error", "message" => "File upload failed."]);
+        }
+    } else {
+        echo json_encode(["status" => "error", "message" => "Invalid file type."]);
+    }
 } else {
-    echo json_encode(["success" => false, "error" => "Failed to save image"]);
+    echo json_encode(["status" => "error", "message" => "No file uploaded."]);
 }
 ?>
