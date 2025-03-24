@@ -1,0 +1,11 @@
+/iskcon-event/
+│── index.html  (Home Page with buttons)
+│── sheet1.html  (Displays Sheet 1)
+│── sheet2.html  (Displays Sheet 2)
+│── sheet3.html  (Displays Sheet 3)
+│── sheet4.html  (Displays Sheet 4)
+│── sheet5.html  (Displays Sheet 5)
+│── register.html  (Registration Page)
+│── style.css  (Unified Styling)
+│── script.js  (JS Logic if needed)
+│── qr-code.png  (QR Code Image)
