@@ -1,57 +1,59 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const sheetId = "1QFLzxYMmlhg0SV8C1cEXPxo9CaM1YKgU8zmQL0ybeEk"; // Your Google Sheets ID
-    const apiKey = "AIzaSyBuVqvwSK-NK2-GXyAsbpN49a1RxajCKwc"; // Your API Key
-
-    // Define sheets with their respective elements
-    const sheets = [
-        { range: "Sheet1!A1:Z100", elementId: "sheetData1" },
-        { range: "Sheet2!A1:Z100", elementId: "sheetData2" },
-        { range: "Sheet3!A1:Z100", elementId: "sheetData3" },
-        { range: "Sheet4!A1:Z100", elementId: "sheetData4" },
-        { range: "Sheet5!A1:Z100", elementId: "sheetData5" }
-    ];
-
-    sheets.forEach(sheet => {
-        if (document.getElementById(sheet.elementId)) {
-            fetchSheetData(sheetId, sheet.range, apiKey, sheet.elementId);
-        }
-    });
+    loadGallery();
+    checkAdmin();
 });
 
-function fetchSheetData(sheetId, range, apiKey, elementId) {
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
+function loadGallery() {
+    const galleryContainer = document.getElementById("gallery-images");
 
-    fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Failed to fetch data: ${response.status}`);
-            }
-            return response.json();
+    // Fetch images from backend (placeholder for now)
+    fetch("get-images.php")
+        .then(response => response.json())
+        .then(images => {
+            galleryContainer.innerHTML = "";
+            images.forEach(img => {
+                const imgElement = document.createElement("img");
+                imgElement.src = img.url;
+                imgElement.classList.add("gallery-image");
+                galleryContainer.appendChild(imgElement);
+            });
         })
-        .then(data => displayData(data, elementId))
-        .catch(error => {
-            console.error(`Error fetching data for ${elementId}:`, error);
-            document.getElementById(elementId).innerHTML = `<p class="error">Unable to load data. Please try again later.</p>`;
-        });
+        .catch(error => console.error("Error loading gallery:", error));
 }
 
-function displayData(data, elementId) {
-    if (!data.values || data.values.length === 0) {
-        document.getElementById(elementId).innerHTML = `<p class="no-data">No data available.</p>`;
+function checkAdmin() {
+    // Placeholder: Replace with actual authentication method
+    const isAdmin = localStorage.getItem("isAdmin") === "true";
+
+    if (isAdmin) {
+        document.getElementById("upload-section").style.display = "block";
+    }
+}
+
+function uploadImage() {
+    const fileInput = document.getElementById("imageUpload");
+    const file = fileInput.files[0];
+
+    if (!file) {
+        alert("Please select an image to upload.");
         return;
     }
 
-    let table = `<table class="styled-table"><thead><tr>`;
-    data.values[0].forEach(header => table += `<th>${header}</th>`);
-    table += `</tr></thead><tbody>`;
+    const formData = new FormData();
+    formData.append("image", file);
 
-    data.values.slice(1).forEach(row => {
-        table += `<tr>`;
-        row.forEach(cell => table += `<td>${cell || "-"}</td>`); // Display '-' for empty cells
-        table += `</tr>`;
-    });
-
-    table += `</tbody></table>`;
-
-    document.getElementById(elementId).innerHTML = table;
+    fetch("upload.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("Image uploaded successfully!");
+            loadGallery();
+        } else {
+            alert("Upload failed: " + data.error);
+        }
+    })
+    .catch(error => console.error("Upload error:", error));
 }
