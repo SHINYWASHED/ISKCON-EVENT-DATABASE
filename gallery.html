@@ -7,20 +7,48 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Gallery</h1>
-    <div class="container">
-        <div id="gallery-images">
-            <!-- Images will be displayed here -->
-        </div>
+    <h1>Event Gallery</h1>
+    
+    <!-- Image Upload Section (Only for Admins) -->
+    <div id="adminUpload" class="container" style="display: none;">
+        <h2>Upload an Image</h2>
+        <input type="file" id="imageInput">
+        <button onclick="uploadImage()">Upload</button>
+    </div>
 
-        <!-- Admin Upload Section -->
-        <div id="upload-section" style="display: none;">
-            <h2>Upload Image (Admin Only)</h2>
-            <input type="file" id="imageUpload" accept="image/*">
-            <button onclick="uploadImage()">Upload</button>
-        </div>
+    <!-- Gallery Display Section -->
+    <div class="container" id="galleryContainer">
+        <h2>Gallery Images</h2>
+        <div id="imageGallery"></div>
     </div>
 
     <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetchGalleryImages();
+
+            // Check if the user is an admin
+            let isAdmin = localStorage.getItem("isAdmin");
+            if (isAdmin === "true") {
+                document.getElementById("adminUpload").style.display = "block";
+            }
+        });
+
+        function fetchGalleryImages() {
+            fetch("get-images.php")
+                .then(response => response.json())
+                .then(images => {
+                    let gallery = document.getElementById("imageGallery");
+                    gallery.innerHTML = "";
+                    images.forEach(img => {
+                        let imgElement = document.createElement("img");
+                        imgElement.src = img;
+                        imgElement.className = "gallery-img";
+                        gallery.appendChild(imgElement);
+                    });
+                })
+                .catch(error => console.error("Error fetching images:", error));
+        }
+    </script>
 </body>
 </html>
