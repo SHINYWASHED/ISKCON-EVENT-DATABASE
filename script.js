@@ -16,12 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
             fetchSheetData(sheetId, sheet.range, apiKey, sheet.elementId);
         }
     });
-
-    // Gallery Feature
-    initGallery();
 });
 
-// Function to Fetch Google Sheets Data
 function fetchSheetData(sheetId, range, apiKey, elementId) {
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
 
@@ -39,7 +35,6 @@ function fetchSheetData(sheetId, range, apiKey, elementId) {
         });
 }
 
-// Function to Display Data in Table
 function displayData(data, elementId) {
     if (!data.values || data.values.length === 0) {
         document.getElementById(elementId).innerHTML = `<p class="no-data">No data available.</p>`;
@@ -59,33 +54,4 @@ function displayData(data, elementId) {
     table += `</tbody></table>`;
 
     document.getElementById(elementId).innerHTML = table;
-}
-
-// Function to Initialize Gallery
-function initGallery() {
-    const gallery = document.getElementById("gallery");
-    const uploadInput = document.getElementById("imageUpload");
-
-    // Ask for Admin Password
-    const password = prompt("Enter Admin Password to Upload Images:");
-    if (password === "your_secure_password") {
-        uploadInput.style.display = "block"; // Show upload input
-    } else {
-        alert("Incorrect password! You cannot upload images.");
-    }
-
-    // Upload & Display Image
-    uploadInput.addEventListener("change", function (event) {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                const img = document.createElement("img");
-                img.src = e.target.result;
-                img.classList.add("gallery-img");
-                gallery.appendChild(img);
-            };
-            reader.readAsDataURL(file);
-        }
-    });
 }
