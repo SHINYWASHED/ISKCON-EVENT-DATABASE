@@ -12,7 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     sheets.forEach(sheet => {
-        if (document.getElementById(sheet.elementId)) {
+        const element = document.getElementById(sheet.elementId);
+        if (element) {
+            element.innerHTML = `<p class="loading">⏳ Loading data...</p>`; // Show loading text
             fetchSheetData(sheetId, sheet.range, apiKey, sheet.elementId);
         }
     });
@@ -24,34 +26,34 @@ function fetchSheetData(sheetId, range, apiKey, elementId) {
     fetch(url)
         .then(response => {
             if (!response.ok) {
-                throw new Error(`Failed to fetch data: ${response.status}`);
+                throw new Error(`HTTP Error ${response.status} - ${response.statusText}`);
             }
             return response.json();
         })
         .then(data => displayData(data, elementId))
         .catch(error => {
             console.error(`Error fetching data for ${elementId}:`, error);
-            document.getElementById(elementId).innerHTML = `<p class="error">Unable to load data. Please try again later.</p>`;
+            document.getElementById(elementId).innerHTML = `<p class="error">⚠ Unable to load data. Please check your connection or try again later.</p>`;
         });
 }
 
 function displayData(data, elementId) {
     if (!data.values || data.values.length === 0) {
-        document.getElementById(elementId).innerHTML = `<p class="no-data">No data available.</p>`;
+        document.getElementById(elementId).innerHTML = `<p class="no-data">📭 No data available.</p>`;
         return;
     }
 
-    let table = `<table class="styled-table"><thead><tr>`;
+    let table = `<div class="table-container"><table class="styled-table"><thead><tr>`;
     data.values[0].forEach(header => table += `<th>${header}</th>`);
     table += `</tr></thead><tbody>`;
 
     data.values.slice(1).forEach(row => {
         table += `<tr>`;
-        row.forEach(cell => table += `<td>${cell || "-"}</td>`); // Display '-' for empty cells
+        row.forEach(cell => table += `<td>${cell ? cell : "-"}</td>`); // Display '-' for empty cells
         table += `</tr>`;
     });
 
-    table += `</tbody></table>`;
+    table += `</tbody></table></div>`;
 
     document.getElementById(elementId).innerHTML = table;
 }
