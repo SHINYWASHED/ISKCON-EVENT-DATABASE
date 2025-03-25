@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const sheetId = "1QFLzxYMmlhg0SV8C1cEXPxo9CaM1YKgU8zmQL0ybeEk"; // Your Google Sheets ID
-    const apiKey = "AIzaSyBuVqvwSK-NK2-GXyAsbpN49a1RxajCKwc"; // Your API Key
+    const sheetId = "1QFLzxYMmlhg0SV8C1cEXPxo9CaM1YKgU8zmQL0ybeEk";
+    const apiKey = "AIzaSyBuVqvwSK-NK2-GXyAsbpN49a1RxajCKwc";
 
-    // Define sheets with their respective elements
     const sheets = [
         { range: "Sheet1!A1:Z100", elementId: "sheetData1" },
         { range: "Sheet2!A1:Z100", elementId: "sheetData2" },
@@ -16,42 +15,12 @@ document.addEventListener("DOMContentLoaded", function () {
             fetchSheetData(sheetId, sheet.range, apiKey, sheet.elementId);
         }
     });
-});
 
-function fetchSheetData(sheetId, range, apiKey, elementId) {
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
-
-    fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Failed to fetch data: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => displayData(data, elementId))
-        .catch(error => {
-            console.error(`Error fetching data for ${elementId}:`, error);
-            document.getElementById(elementId).innerHTML = `<p class="error">Unable to load data. Please try again later.</p>`;
-        });
-}
-
-function displayData(data, elementId) {
-    if (!data.values || data.values.length === 0) {
-        document.getElementById(elementId).innerHTML = `<p class="no-data">No data available.</p>`;
-        return;
+    // Load gallery images dynamically
+    if (document.getElementById("gallery")) {
+        const images = ["event1.jpg", "event2.jpg", "event3.jpg", "event4.jpg"];
+        document.getElementById("gallery").innerHTML = images.map(img => 
+            `<img src="images/${img}" alt="${img.split('.')[0]}">`
+        ).join('');
     }
-
-    let table = `<table class="styled-table"><thead><tr>`;
-    data.values[0].forEach(header => table += `<th>${header}</th>`);
-    table += `</tr></thead><tbody>`;
-
-    data.values.slice(1).forEach(row => {
-        table += `<tr>`;
-        row.forEach(cell => table += `<td>${cell || "-"}</td>`); // Display '-' for empty cells
-        table += `</tr>`;
-    });
-
-    table += `</tbody></table>`;
-
-    document.getElementById(elementId).innerHTML = table;
-}
+});
