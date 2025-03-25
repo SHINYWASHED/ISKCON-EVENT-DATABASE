@@ -23,7 +23,7 @@ h1 {
 .container {
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
-    padding: 20px;
+    padding: 25px;
     border-radius: 15px;
     max-width: 90%;
     width: 850px;
@@ -36,7 +36,7 @@ button, .gallery-link {
     display: block;
     width: 90%;
     padding: 14px;
-    margin: 10px auto;
+    margin: 12px auto;
     border: none;
     font-size: 18px;
     font-weight: bold;
@@ -44,16 +44,36 @@ button, .gallery-link {
     cursor: pointer;
     background: linear-gradient(90deg, #ff758c, #ff7eb3);
     color: white;
-    border-radius: 10px;
+    border-radius: 12px;
     text-decoration: none;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(255, 118, 136, 0.3);
 }
 
 button:hover, .gallery-link:hover {
     background: linear-gradient(90deg, #ff7eb3, #ff758c);
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+    transform: scale(1.06);
+    box-shadow: 0 6px 15px rgba(255, 118, 136, 0.5);
+}
+
+button:active, .gallery-link:active {
+    transform: scale(0.98);
+}
+
+/* Event Gallery Button */
+.gallery-link {
+    padding: 16px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+    border: 2px solid white;
+}
+
+.gallery-link:hover {
+    background: linear-gradient(90deg, #fad0c4, #ff9a9e);
 }
 
 /* Table Styles */
@@ -63,34 +83,40 @@ table {
     margin: 20px auto;
     border-collapse: collapse;
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
-    border-radius: 10px;
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.15);
 }
 
+/* Table Headers */
 th {
     background: linear-gradient(90deg, #ff758c, #ff7eb3);
     color: white;
-    padding: 15px;
+    padding: 16px;
     text-align: left;
-    font-size: 16px;
+    font-size: 17px;
 }
 
+/* Table Data */
 td {
-    padding: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     text-align: left;
-    font-size: 15px;
+    font-size: 16px;
     color: #ddd;
 }
 
+/* Alternate Row Color */
 tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.06);
 }
 
+/* Hover Effect for Rows */
 tr:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.15);
+    transition: background 0.3s ease-in-out;
 }
 
 /* Gallery Page */
@@ -98,13 +124,53 @@ tr:hover {
     margin-top: 20px;
 }
 
-.gallery-link {
-    padding: 15px 25px;
-    font-size: 20px;
+/* Back Button */
+.back-button {
     display: inline-block;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 14px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 12px;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 20px;
+    transition: all 0.3s ease-in-out;
 }
 
-.back-button {
-    width: 200px;
-    margin-top: 20px;
+.back-button:hover {
+    background: linear-gradient(90deg, #2575fc, #6a11cb);
+    transform: scale(1.05);
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+    }
+
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    table {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 12px;
+    }
+
+    .gallery-link {
+        font-size: 18px;
+        padding: 12px 25px;
+    }
+
+    .back-button {
+        font-size: 16px;
+        padding: 12px 25px;
+    }
 }
