@@ -19,6 +19,17 @@ h1 {
     -webkit-text-fill-color: transparent;
 }
 
+/* Hare Krishna Mahamantra */
+.mantra {
+    font-size: 22px;
+    font-weight: bold;
+    color: #FFD700;
+    text-align: center;
+    margin-top: 10px;
+    text-shadow: 2px 2px 10px rgba(255, 215, 0, 0.8);
+    animation: fadeIn 2s ease-in-out;
+}
+
 /* Container */
 .container {
     background: rgba(255, 255, 255, 0.08);
@@ -53,12 +64,12 @@ button, .gallery-link, .back-button {
 
 button:hover, .gallery-link:hover, .back-button:hover {
     background: linear-gradient(90deg, #2c2c2c, #000000);
-    transform: scale(1.05);
-    box-shadow: 0 0 18px rgba(255, 255, 255, 0.6);
+    transform: scale(1.07);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
 }
 
 button:active, .gallery-link:active, .back-button:active {
-    transform: scale(0.98);
+    transform: scale(0.96);
 }
 
 /* Event Gallery Button */
@@ -110,7 +121,7 @@ tr:nth-child(even) {
 
 /* Hover Effect for Rows */
 tr:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.2);
     transition: background 0.3s ease-in-out;
 }
 
