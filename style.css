@@ -1,22 +1,14 @@
-/* Black Gradient Background with Animation */
+/* General Styles */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #000000, #1c1c1c, #232323);
-    background-size: 400% 400%;
-    animation: gradientAnimation 8s infinite alternate;
+    background: #121212;
     color: white;
     text-align: center;
     margin: 0;
     padding: 0;
 }
 
-/* Gradient Animation */
-@keyframes gradientAnimation {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
-}
-
-/* Main Heading */
+/* Heading */
 h1 {
     font-size: 42px;
     text-transform: uppercase;
@@ -25,120 +17,94 @@ h1 {
     background: linear-gradient(90deg, #ff9a9e, #fad0c4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: fadeIn 1.5s ease-in-out;
 }
 
-/* Fade In Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Container with Glassmorphism */
+/* Container */
 .container {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 25px;
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    padding: 20px;
+    border-radius: 15px;
     max-width: 90%;
-    width: 800px;
-    margin: 40px auto;
-    box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.1);
-    animation: slideUp 1s ease-in-out;
-}
-
-/* Slide Up Animation */
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    width: 850px;
+    margin: 30px auto;
+    box-shadow: 0px 8px 16px rgba(255, 255, 255, 0.08);
 }
 
 /* Buttons */
-button {
+button, .gallery-link {
     display: block;
     width: 90%;
     padding: 14px;
-    margin: 12px auto;
+    margin: 10px auto;
     border: none;
     font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
-    background: linear-gradient(90deg, #ff9a9e, #fad0c4);
-    color: black;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
-}
-
-/* Button Hover Effect */
-button:hover {
-    background: linear-gradient(90deg, #fad0c4, #ff9a9e);
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
-}
-
-/* QR Code */
-.qr-code {
-    width: 180px;
-    height: auto;
-    margin: 20px auto;
+    background: linear-gradient(90deg, #ff758c, #ff7eb3);
+    color: white;
     border-radius: 10px;
-    display: block;
-    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease-in-out;
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* QR Code Hover Effect */
-.qr-code:hover {
-    transform: scale(1.1);
+button:hover, .gallery-link:hover {
+    background: linear-gradient(90deg, #ff7eb3, #ff758c);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
 }
 
-/* TABLE STYLING */
+/* Table Styles */
 table {
     width: 95%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 20px auto;
     border-collapse: collapse;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
     border-radius: 10px;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* Table Headers */
 th {
-    background: linear-gradient(90deg, #ff9a9e, #fad0c4);
-    color: black;
-    font-weight: bold;
+    background: linear-gradient(90deg, #ff758c, #ff7eb3);
+    color: white;
     padding: 15px;
     text-align: left;
     font-size: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Table Data */
 td {
-    padding: 12px 18px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
     text-align: left;
     font-size: 15px;
-    line-height: 1.6;
+    color: #ddd;
 }
 
-/* Alternate Row Color */
 tr:nth-child(even) {
     background: rgba(255, 255, 255, 0.05);
 }
 
-/* Responsive Table */
-@media screen and (max-width: 768px) {
-    table {
-        font-size: 14px;
-        width: 100%;
-    }
+tr:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
 
-    th, td {
-        padding: 10px;
-    }
+/* Gallery Page */
+.gallery-container {
+    margin-top: 20px;
+}
+
+.gallery-link {
+    padding: 15px 25px;
+    font-size: 20px;
+    display: inline-block;
+}
+
+.back-button {
+    width: 200px;
+    margin-top: 20px;
 }
