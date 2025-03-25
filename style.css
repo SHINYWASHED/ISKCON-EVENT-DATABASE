@@ -21,13 +21,32 @@ h1 {
 
 /* Hare Krishna Mahamantra */
 .mantra {
-    font-size: 22px;
+    font-size: 30px; /* Bigger font size */
     font-weight: bold;
     color: #FFD700;
     text-align: center;
-    margin-top: 10px;
-    text-shadow: 2px 2px 10px rgba(255, 215, 0, 0.8);
-    animation: fadeIn 2s ease-in-out;
+    margin-top: 15px;
+    text-shadow: 
+        0 0 10px rgba(255, 215, 0, 0.8),
+        0 0 20px rgba(255, 215, 0, 0.6),
+        0 0 30px rgba(255, 215, 0, 0.4);
+    animation: glow 2s infinite alternate;
+}
+
+/* Glowing Effect Animation */
+@keyframes glow {
+    0% {
+        text-shadow: 
+            0 0 10px rgba(255, 215, 0, 0.8),
+            0 0 20px rgba(255, 215, 0, 0.6),
+            0 0 30px rgba(255, 215, 0, 0.4);
+    }
+    100% {
+        text-shadow: 
+            0 0 15px rgba(255, 215, 0, 1),
+            0 0 25px rgba(255, 215, 0, 0.9),
+            0 0 40px rgba(255, 215, 0, 0.8);
+    }
 }
 
 /* Container */
@@ -128,7 +147,7 @@ tr:hover {
 /* QR Code Styling */
 .qr-code {
     display: block;
-    width: 180px; /* Adjusted Size */
+    width: 200px; /* Adjusted Size */
     height: auto;
     margin: 20px auto;
     border-radius: 10px;
