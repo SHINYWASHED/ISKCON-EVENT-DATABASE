@@ -14,7 +14,7 @@ h1 {
     text-transform: uppercase;
     margin-top: 20px;
     text-shadow: 3px 3px 15px rgba(255, 255, 255, 0.3);
-    background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+    background: linear-gradient(90deg, #ffffff, #d1d1d1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -31,8 +31,8 @@ h1 {
     box-shadow: 0px 8px 16px rgba(255, 255, 255, 0.08);
 }
 
-/* Dark Gradient Buttons with Neon Border */
-button, .gallery-link {
+/* Buttons - Black Gradient with White Neon Glow */
+button, .gallery-link, .back-button {
     display: block;
     width: 90%;
     padding: 14px;
@@ -42,23 +42,22 @@ button, .gallery-link {
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
-    background: linear-gradient(90deg, #2a2a72, #009ffd);
+    background: linear-gradient(90deg, #000000, #2c2c2c);
     color: white;
     border-radius: 12px;
     text-decoration: none;
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
 }
 
-/* Button Hover Effect */
-button:hover, .gallery-link:hover {
-    background: linear-gradient(90deg, #009ffd, #2a2a72);
-    transform: scale(1.06);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+button:hover, .gallery-link:hover, .back-button:hover {
+    background: linear-gradient(90deg, #2c2c2c, #000000);
+    transform: scale(1.05);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.6);
 }
 
-button:active, .gallery-link:active {
+button:active, .gallery-link:active, .back-button:active {
     transform: scale(0.98);
 }
 
@@ -69,11 +68,6 @@ button:active, .gallery-link:active {
     font-weight: bold;
     border-radius: 50px;
     text-transform: uppercase;
-    background: linear-gradient(90deg, #2a2a72, #009ffd);
-}
-
-.gallery-link:hover {
-    background: linear-gradient(90deg, #009ffd, #2a2a72);
 }
 
 /* Table Styles */
@@ -86,17 +80,18 @@ table {
     backdrop-filter: blur(6px);
     border-radius: 12px;
     overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.15);
+    border: 2px solid white;
     box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.15);
 }
 
 /* Table Headers */
 th {
-    background: linear-gradient(90deg, #2a2a72, #009ffd);
+    background: linear-gradient(90deg, #000000, #2c2c2c);
     color: white;
     padding: 16px;
     text-align: left;
     font-size: 17px;
+    border: 2px solid white;
 }
 
 /* Table Data */
@@ -126,8 +121,9 @@ tr:hover {
     height: auto;
     margin: 20px auto;
     border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.4);
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.2);
     transition: transform 0.3s ease-in-out;
+    border: 2px solid white;
 }
 
 .qr-code:hover {
@@ -137,29 +133,6 @@ tr:hover {
 /* Gallery Page */
 .gallery-container {
     margin-top: 20px;
-}
-
-/* Back Button */
-.back-button {
-    display: inline-block;
-    background: linear-gradient(90deg, #2a2a72, #009ffd);
-    color: white;
-    padding: 14px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 12px;
-    text-decoration: none;
-    text-align: center;
-    margin-top: 20px;
-    border: 2px solid white;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-    transition: all 0.3s ease-in-out;
-}
-
-.back-button:hover {
-    background: linear-gradient(90deg, #009ffd, #2a2a72);
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
 }
 
 /* Mobile Responsive */
