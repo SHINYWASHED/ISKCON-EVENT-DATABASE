@@ -119,6 +119,21 @@ tr:hover {
     transition: background 0.3s ease-in-out;
 }
 
+/* QR Code Styling */
+.qr-code {
+    display: block;
+    width: 180px; /* Adjusted Size */
+    height: auto;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.qr-code:hover {
+    transform: scale(1.1);
+}
+
 /* Gallery Page */
 .gallery-container {
     margin-top: 20px;
@@ -172,5 +187,9 @@ tr:hover {
     .back-button {
         font-size: 16px;
         padding: 12px 25px;
+    }
+
+    .qr-code {
+        width: 150px; /* Smaller size for mobile */
     }
 }
