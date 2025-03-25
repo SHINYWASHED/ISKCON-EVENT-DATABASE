@@ -1,7 +1,8 @@
 /* General Styles */
 body {
     font-family: 'Poppins', sans-serif;
-    background: #121212;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: white;
     text-align: center;
     margin: 0;
@@ -21,47 +22,33 @@ h1 {
 
 /* Hare Krishna Mahamantra */
 .mantra {
-    font-size: 30px; /* Bigger font size */
+    font-size: 32px;
     font-weight: bold;
     color: #FFD700;
     text-align: center;
     margin-top: 15px;
-    text-shadow: 
-        0 0 10px rgba(255, 215, 0, 0.8),
-        0 0 20px rgba(255, 215, 0, 0.6),
-        0 0 30px rgba(255, 215, 0, 0.4);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 1), 0 0 30px rgba(255, 215, 0, 0.9), 0 0 40px rgba(255, 215, 0, 0.8);
     animation: glow 2s infinite alternate;
 }
 
-/* Glowing Effect Animation */
 @keyframes glow {
-    0% {
-        text-shadow: 
-            0 0 10px rgba(255, 215, 0, 0.8),
-            0 0 20px rgba(255, 215, 0, 0.6),
-            0 0 30px rgba(255, 215, 0, 0.4);
-    }
-    100% {
-        text-shadow: 
-            0 0 15px rgba(255, 215, 0, 1),
-            0 0 25px rgba(255, 215, 0, 0.9),
-            0 0 40px rgba(255, 215, 0, 0.8);
-    }
+    0% { text-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 25px rgba(255, 215, 0, 0.6), 0 0 35px rgba(255, 215, 0, 0.4); }
+    100% { text-shadow: 0 0 20px rgba(255, 215, 0, 1), 0 0 30px rgba(255, 215, 0, 0.9), 0 0 40px rgba(255, 215, 0, 0.8); }
 }
 
 /* Container */
 .container {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    padding: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 30px;
     border-radius: 15px;
     max-width: 90%;
     width: 850px;
     margin: 30px auto;
-    box-shadow: 0px 8px 16px rgba(255, 255, 255, 0.08);
+    box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.1);
 }
 
-/* Buttons - Black Gradient with White Neon Glow */
+/* Buttons */
 button, .gallery-link, .back-button {
     display: block;
     width: 90%;
@@ -87,19 +74,6 @@ button:hover, .gallery-link:hover, .back-button:hover {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
 }
 
-button:active, .gallery-link:active, .back-button:active {
-    transform: scale(0.96);
-}
-
-/* Event Gallery Button */
-.gallery-link {
-    padding: 16px 30px;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 50px;
-    text-transform: uppercase;
-}
-
 /* Table Styles */
 table {
     width: 95%;
@@ -114,7 +88,6 @@ table {
     box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.15);
 }
 
-/* Table Headers */
 th {
     background: linear-gradient(90deg, #000000, #2c2c2c);
     color: white;
@@ -124,7 +97,6 @@ th {
     border: 2px solid white;
 }
 
-/* Table Data */
 td {
     padding: 14px;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -133,69 +105,11 @@ td {
     color: #ddd;
 }
 
-/* Alternate Row Color */
 tr:nth-child(even) {
     background: rgba(255, 255, 255, 0.06);
 }
 
-/* Hover Effect for Rows */
 tr:hover {
     background: rgba(255, 255, 255, 0.2);
     transition: background 0.3s ease-in-out;
-}
-
-/* QR Code Styling */
-.qr-code {
-    display: block;
-    width: 200px; /* Adjusted Size */
-    height: auto;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease-in-out;
-    border: 2px solid white;
-}
-
-.qr-code:hover {
-    transform: scale(1.1);
-}
-
-/* Gallery Page */
-.gallery-container {
-    margin-top: 20px;
-}
-
-/* Mobile Responsive */
-@media screen and (max-width: 768px) {
-    h1 {
-        font-size: 36px;
-    }
-
-    .container {
-        width: 95%;
-        padding: 15px;
-    }
-
-    table {
-        font-size: 14px;
-        width: 100%;
-    }
-
-    th, td {
-        padding: 12px;
-    }
-
-    .gallery-link {
-        font-size: 18px;
-        padding: 12px 25px;
-    }
-
-    .back-button {
-        font-size: 16px;
-        padding: 12px 25px;
-    }
-
-    .qr-code {
-        width: 150px; /* Smaller size for mobile */
-    }
 }
