@@ -1,19 +1,11 @@
-/* General Styles */
+/* Smooth Dark Theme with Modern UI */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #000000, #1c1c1c, #232323);
-    background-size: 400% 400%;
-    animation: gradientAnimation 8s infinite alternate;
+    background: #0d0d0d;
     color: white;
     text-align: center;
     margin: 0;
     padding: 0;
-}
-
-/* Gradient Animation */
-@keyframes gradientAnimation {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
 }
 
 /* Main Heading */
@@ -22,29 +14,29 @@ h1 {
     text-transform: uppercase;
     margin-top: 20px;
     text-shadow: 3px 3px 15px rgba(255, 255, 255, 0.3);
-    background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+    background: linear-gradient(90deg, #ff758c, #ffb199);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: fadeIn 1.5s ease-in-out;
+    animation: fadeIn 1.2s ease-in-out;
 }
 
-/* Fade In Animation */
+/* Smooth Fade In Animation */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Container with Glassmorphism */
+/* Container with Glassmorphism Effect */
 .container {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
     padding: 25px;
-    border-radius: 12px;
+    border-radius: 15px;
     max-width: 90%;
-    width: 800px;
-    margin: 40px auto;
-    box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.1);
-    animation: slideUp 1s ease-in-out;
+    width: 850px;
+    margin: 30px auto;
+    box-shadow: 0px 8px 18px rgba(255, 255, 255, 0.1);
+    animation: slideUp 0.8s ease-in-out;
 }
 
 /* Slide Up Animation */
@@ -53,7 +45,7 @@ h1 {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Buttons */
+/* Stylish Buttons */
 button {
     display: block;
     width: 90%;
@@ -64,58 +56,84 @@ button {
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
-    background: linear-gradient(90deg, #ff9a9e, #fad0c4);
-    color: black;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+    background: linear-gradient(90deg, #ff758c, #ffb199);
+    color: white;
+    border-radius: 12px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s;
 }
 
 /* Button Hover Effect */
 button:hover {
-    background: linear-gradient(90deg, #fad0c4, #ff9a9e);
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+    background: linear-gradient(90deg, #ffb199, #ff758c);
+    transform: scale(1.06);
+    box-shadow: 0 6px 22px rgba(255, 255, 255, 0.2);
 }
 
-/* Table Styling */
+/* Gallery Styling */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0px 6px 18px rgba(255, 255, 255, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.08);
+    box-shadow: 0px 10px 25px rgba(255, 255, 255, 0.2);
+}
+
+/* Professional Table Styling */
 table {
     width: 95%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 20px auto;
     border-collapse: collapse;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(8px);
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0px 5px 20px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0px 6px 16px rgba(255, 255, 255, 0.1);
 }
 
 /* Table Headers */
 th {
-    background: linear-gradient(90deg, #ff9a9e, #fad0c4);
-    color: black;
+    background: linear-gradient(90deg, #ff758c, #ffb199);
+    color: white;
     font-weight: bold;
-    padding: 15px;
+    padding: 16px;
     text-align: left;
     font-size: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Table Data */
 td {
-    padding: 12px 18px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
     text-align: left;
     font-size: 15px;
     line-height: 1.6;
-    color: white;
+    color: #ddd;
 }
 
 /* Alternate Row Color */
 tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* Hover Effect for Rows */
+tr:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transition: background 0.3s ease-in-out;
 }
 
 /* Responsive Table */
@@ -126,81 +144,24 @@ tr:nth-child(even) {
     }
 
     th, td {
-        padding: 10px;
+        padding: 12px;
     }
 }
 
-/* Gallery Styles */
-.gallery-container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-.gallery-item {
-    width: 250px;
-    height: 200px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease-in-out;
+::-webkit-scrollbar-track {
+    background: #121212;
 }
 
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.gallery-item:hover {
-    transform: scale(1.05);
-}
-
-/* Upload Button */
-.upload-btn {
-    display: inline-block;
-    padding: 12px 18px;
-    margin: 20px;
-    background: linear-gradient(90deg, #ff9a9e, #fad0c4);
-    color: black;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
-}
-
-.upload-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
-}
-
-/* Admin Upload Section */
-.admin-upload {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.admin-upload input {
-    display: block;
-    margin: 10px auto;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
+::-webkit-scrollbar-thumb {
+    background: #ff758c;
     border-radius: 8px;
 }
 
-.admin-upload input::file-selector-button {
-    background: #ff9a9e;
-    border: none;
-    padding: 10px;
-    border-radius: 8px;
-    cursor: pointer;
+::-webkit-scrollbar-thumb:hover {
+    background: #ffb199;
 }
