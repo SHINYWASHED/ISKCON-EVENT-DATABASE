@@ -1,11 +1,19 @@
-/* Smooth Dark Theme with Modern UI */
+/* General Styles */
 body {
     font-family: 'Poppins', sans-serif;
-    background: #121212;
+    background: linear-gradient(135deg, #000000, #1c1c1c, #232323);
+    background-size: 400% 400%;
+    animation: gradientAnimation 8s infinite alternate;
     color: white;
     text-align: center;
     margin: 0;
     padding: 0;
+}
+
+/* Gradient Animation */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
 }
 
 /* Main Heading */
@@ -17,26 +25,26 @@ h1 {
     background: linear-gradient(90deg, #ff9a9e, #fad0c4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: fadeIn 1.2s ease-in-out;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
-/* Smooth Fade In Animation */
+/* Fade In Animation */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Container with Glassmorphism Effect */
+/* Container with Glassmorphism */
 .container {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    padding: 20px;
-    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 12px;
     max-width: 90%;
-    width: 850px;
-    margin: 30px auto;
-    box-shadow: 0px 8px 16px rgba(255, 255, 255, 0.08);
-    animation: slideUp 0.8s ease-in-out;
+    width: 800px;
+    margin: 40px auto;
+    box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.1);
+    animation: slideUp 1s ease-in-out;
 }
 
 /* Slide Up Animation */
@@ -45,93 +53,69 @@ h1 {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Stylish Buttons */
+/* Buttons */
 button {
     display: block;
     width: 90%;
     padding: 14px;
-    margin: 10px auto;
+    margin: 12px auto;
     border: none;
     font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
-    background: linear-gradient(90deg, #ff758c, #ff7eb3);
-    color: white;
-    border-radius: 10px;
+    background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+    color: black;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s;
 }
 
 /* Button Hover Effect */
 button:hover {
-    background: linear-gradient(90deg, #ff7eb3, #ff758c);
+    background: linear-gradient(90deg, #fad0c4, #ff9a9e);
     transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
 }
 
-/* Gallery Styling */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 15px;
-    padding: 20px;
-}
-
-.gallery img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.15);
-    transition: transform 0.3s ease-in-out;
-}
-
-.gallery img:hover {
-    transform: scale(1.07);
-}
-
-/* Professional Table Styling */
+/* Table Styling */
 table {
     width: 95%;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 20px auto;
     border-collapse: collapse;
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
     border-radius: 10px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0px 5px 20px rgba(255, 255, 255, 0.1);
 }
 
 /* Table Headers */
 th {
-    background: linear-gradient(90deg, #ff758c, #ff7eb3);
-    color: white;
+    background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+    color: black;
     font-weight: bold;
     padding: 15px;
     text-align: left;
     font-size: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
 }
 
 /* Table Data */
 td {
-    padding: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 12px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     text-align: left;
     font-size: 15px;
     line-height: 1.6;
-    color: #ddd;
+    color: white;
 }
 
 /* Alternate Row Color */
 tr:nth-child(even) {
     background: rgba(255, 255, 255, 0.05);
-}
-
-/* Hover Effect for Rows */
-tr:hover {
-    background: rgba(255, 255, 255, 0.12);
-    transition: background 0.3s ease-in-out;
 }
 
 /* Responsive Table */
@@ -144,4 +128,79 @@ tr:hover {
     th, td {
         padding: 10px;
     }
+}
+
+/* Gallery Styles */
+.gallery-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gallery-item {
+    width: 250px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+/* Upload Button */
+.upload-btn {
+    display: inline-block;
+    padding: 12px 18px;
+    margin: 20px;
+    background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+    color: black;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+.upload-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Admin Upload Section */
+.admin-upload {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.admin-upload input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 8px;
+}
+
+.admin-upload input::file-selector-button {
+    background: #ff9a9e;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
 }
