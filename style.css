@@ -1,19 +1,11 @@
-/* Black Gradient Background with Animation */
+/* Smooth Dark Theme with Modern UI */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #000000, #1c1c1c, #232323);
-    background-size: 400% 400%;
-    animation: gradientAnimation 8s infinite alternate;
+    background: #121212;
     color: white;
     text-align: center;
     margin: 0;
     padding: 0;
-}
-
-/* Gradient Animation */
-@keyframes gradientAnimation {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
 }
 
 /* Main Heading */
@@ -25,20 +17,26 @@ h1 {
     background: linear-gradient(90deg, #ff9a9e, #fad0c4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: fadeIn 1.5s ease-in-out;
+    animation: fadeIn 1.2s ease-in-out;
 }
 
-/* Container with Glassmorphism */
+/* Smooth Fade In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Container with Glassmorphism Effect */
 .container {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 25px;
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    padding: 20px;
+    border-radius: 15px;
     max-width: 90%;
-    width: 800px;
-    margin: 40px auto;
-    box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.1);
-    animation: slideUp 1s ease-in-out;
+    width: 850px;
+    margin: 30px auto;
+    box-shadow: 0px 8px 16px rgba(255, 255, 255, 0.08);
+    animation: slideUp 0.8s ease-in-out;
 }
 
 /* Slide Up Animation */
@@ -47,29 +45,28 @@ h1 {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Buttons */
+/* Stylish Buttons */
 button {
     display: block;
     width: 90%;
     padding: 14px;
-    margin: 12px auto;
+    margin: 10px auto;
     border: none;
     font-size: 18px;
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
-    background: linear-gradient(90deg, #ff9a9e, #fad0c4);
-    color: black;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+    background: linear-gradient(90deg, #ff758c, #ff7eb3);
+    color: white;
+    border-radius: 10px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s;
 }
 
 /* Button Hover Effect */
 button:hover {
-    background: linear-gradient(90deg, #fad0c4, #ff9a9e);
+    background: linear-gradient(90deg, #ff7eb3, #ff758c);
     transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
 }
 
 /* Gallery Styling */
@@ -83,11 +80,68 @@ button:hover {
 .gallery img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.15);
     transition: transform 0.3s ease-in-out;
 }
 
 .gallery img:hover {
-    transform: scale(1.05);
+    transform: scale(1.07);
+}
+
+/* Professional Table Styling */
+table {
+    width: 95%;
+    max-width: 1000px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Table Headers */
+th {
+    background: linear-gradient(90deg, #ff758c, #ff7eb3);
+    color: white;
+    font-weight: bold;
+    padding: 15px;
+    text-align: left;
+    font-size: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Table Data */
+td {
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    text-align: left;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+/* Alternate Row Color */
+tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Hover Effect for Rows */
+tr:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transition: background 0.3s ease-in-out;
+}
+
+/* Responsive Table */
+@media screen and (max-width: 768px) {
+    table {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 10px;
+    }
 }
