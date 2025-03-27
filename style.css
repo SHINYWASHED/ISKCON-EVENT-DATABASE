@@ -8,86 +8,82 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
-    position: relative;
-}
-
-/* Adding a Semi-transparent Black Overlay */
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.65); /* Darker for better contrast */
-    z-index: -1;
 }
 
 /* Main Heading */
 h1 {
-    font-size: 48px;
+    font-size: 52px;
     text-transform: uppercase;
     margin-top: 20px;
-    text-shadow: 2px 2px 20px rgba(255, 255, 255, 0.5);
-    background: linear-gradient(90deg, #f39c12, #e74c3c);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     font-weight: 700;
     letter-spacing: 2px;
+    background: linear-gradient(90deg, #ff007f, #ffae00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 4px 4px 20px rgba(255, 174, 0, 0.8);
+    animation: fadeIn 1s ease-in-out;
 }
 
-/* Hare Krishna Mahamantra */
+/* Glow Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mahamantra Styling */
 .mantra {
-    font-size: 38px;
+    font-size: 40px;
     font-weight: bold;
-    color: #00FFEA; /* Slightly softer cyan */
     text-align: center;
     margin-top: 20px;
-    text-shadow: 0 0 20px rgba(0, 255, 234, 0.8);
-    animation: glow 1.5s infinite alternate;
+    background: linear-gradient(90deg, #00ffe1, #00aaff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(0, 255, 225, 1);
+    animation: neonGlow 1.5s infinite alternate;
 }
 
-@keyframes glow {
-    0% { text-shadow: 0 0 15px rgba(0, 255, 234, 0.5); }
-    100% { text-shadow: 0 0 30px rgba(0, 255, 234, 1); }
+@keyframes neonGlow {
+    0% { text-shadow: 0 0 15px rgba(0, 255, 225, 0.5); }
+    100% { text-shadow: 0 0 35px rgba(0, 255, 225, 1); }
 }
 
-/* Content Box */
+/* Glassmorphic Container */
 .container {
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(10px);
-    padding: 40px;
-    border-radius: 18px;
-    max-width: 950px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 50px;
+    max-width: 900px;
     width: 90%;
     margin: 50px auto;
-    box-shadow: 0px 12px 30px rgba(255, 255, 255, 0.15);
+    box-shadow: 0px 15px 35px rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Buttons */
 button, .gallery-link, .back-button {
     display: block;
     width: 90%;
-    padding: 14px;
-    margin: 12px auto;
-    border: none;
-    font-size: 20px;
+    padding: 16px;
+    margin: 14px auto;
+    font-size: 22px;
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
-    background: linear-gradient(90deg, #222, #444);
+    background: linear-gradient(90deg, #ff007f, #ffae00);
     color: white;
     border-radius: 14px;
     text-decoration: none;
     text-align: center;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+    border: none;
+    box-shadow: 0 0 20px rgba(255, 174, 0, 0.8);
 }
 
 button:hover, .gallery-link:hover, .back-button:hover {
-    background: linear-gradient(90deg, #555, #222);
-    transform: scale(1.08);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 174, 0, 1);
 }
 
 /* Table Styles */
@@ -96,64 +92,59 @@ table {
     max-width: 1000px;
     margin: 25px auto;
     border-collapse: collapse;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(15px);
+    border-radius: 16px;
     overflow: hidden;
-    border: 2px solid white;
-    box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 10px 30px rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 th {
-    background: linear-gradient(90deg, #222, #444);
+    background: linear-gradient(90deg, #ff007f, #ffae00);
     color: white;
-    padding: 16px;
+    padding: 18px;
     text-align: center;
-    font-size: 18px;
-    border: 2px solid white;
+    font-size: 20px;
     text-transform: uppercase;
     font-weight: bold;
 }
 
 td {
-    padding: 16px;
+    padding: 18px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     text-align: center;
-    font-size: 17px;
+    font-size: 18px;
     color: #fff;
 }
 
 tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 tr:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.3);
     transition: background 0.3s ease-in-out;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    body {
-        background-size: cover;
-    }
-
     .container {
         width: 95%;
-        padding: 25px;
+        padding: 30px;
     }
 
     button, .gallery-link, .back-button {
         width: 100%;
-        font-size: 18px;
+        font-size: 20px;
     }
 
     h1 {
-        font-size: 36px;
+        font-size: 38px;
     }
 
     .mantra {
-        font-size: 28px;
+        font-size: 30px;
     }
 
     table {
@@ -161,7 +152,7 @@ tr:hover {
     }
 
     th, td {
-        padding: 12px;
+        padding: 14px;
         font-size: 16px;
     }
 }
