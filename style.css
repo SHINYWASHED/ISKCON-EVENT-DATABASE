@@ -119,6 +119,30 @@ tr:hover {
     transition: background 0.3s ease-in-out;
 }
 
+/* QR Code Section */
+.qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.qr-container img {
+    width: 200px;  /* Adjust QR size */
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.4);
+}
+
+.qr-container p {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffcc00;
+    text-align: center;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     body {
@@ -150,5 +174,10 @@ tr:hover {
     th, td {
         padding: 12px;
         font-size: 16px;
+    }
+
+    .qr-container img {
+        width: 180px;  /* Slightly smaller on mobile */
+        height: 180px;
     }
 }
