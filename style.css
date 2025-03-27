@@ -2,7 +2,11 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: url('background.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background-size: 100% auto; /* Prevents excessive stretching */
+    background-repeat: no-repeat;
+    background-position: center;
+    image-rendering: crisp-edges; /* Enhances sharpness */
+    image-rendering: -webkit-optimize-contrast;
     color: white;
     text-align: center;
     margin: 0;
@@ -112,4 +116,21 @@ tr:nth-child(even) {
 tr:hover {
     background: rgba(255, 255, 255, 0.2);
     transition: background 0.3s ease-in-out;
+}
+
+/* Responsive Fix for Small Screens */
+@media (max-width: 768px) {
+    body {
+        background-size: cover; /* Ensures better fit on mobile */
+    }
+
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    button, .gallery-link, .back-button {
+        width: 100%;
+        font-size: 16px;
+    }
 }
