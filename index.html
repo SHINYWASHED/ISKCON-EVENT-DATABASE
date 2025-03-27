@@ -8,11 +8,19 @@
 </head>
 <body>
 
-    <h1>ISKCON Event Database</h1>
+    <nav>
+        <h1>ISKCON Event Database</h1>
+    </nav>
 
     <!-- Hare Krishna Mahamantra -->
-    <p class="mantra"> Hare Krishna Hare Krishna Krishna Krishna Hare Hare <br> Hare Rama Hare Rama Rama Rama Hare Hare </p>
+    <div class="mantra-container">
+        <p class="mantra"> 
+            Hare Krishna Hare Krishna Krishna Krishna Hare Hare <br> 
+            Hare Rama Hare Rama Rama Rama Hare Hare 
+        </p>
+    </div>
 
+    <!-- Main Container -->
     <div class="container">
         <button onclick="location.href='sheet1.html'">📋 Attendance Sheet</button>
         <button onclick="location.href='sheet2.html'">📜 Student Details</button>
@@ -21,6 +29,12 @@
         <button onclick="location.href='sheet5.html'">⏳ Not Decided</button>
         <button onclick="location.href='register.html'">🎟 Register Now for Upcoming Event</button>
         <button onclick="location.href='drivelink.html'" class="gallery-button">📸 Event Gallery</button>
+
+        <!-- QR Code Section -->
+        <div class="qr-container">
+            <img src="qrcode.png" alt="QR Code">
+            <p>Scan to Register</p>
+        </div>
     </div>
 
 </body>
