@@ -28,26 +28,23 @@ h1 {
     color: #FFD700;
     text-align: center;
     margin-top: 15px;
-    text-shadow: 
-        0 0 15px rgba(255, 215, 0, 0.9),
-        0 0 25px rgba(255, 215, 0, 0.7),
-        0 0 40px rgba(255, 215, 0, 0.5);
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.9),
+                 0 0 25px rgba(255, 215, 0, 0.7),
+                 0 0 40px rgba(255, 215, 0, 0.5);
     animation: glow 1.8s infinite alternate ease-in-out;
 }
 
 /* Glowing Effect Animation */
 @keyframes glow {
     0% {
-        text-shadow: 
-            0 0 15px rgba(255, 215, 0, 0.9),
-            0 0 25px rgba(255, 215, 0, 0.7),
-            0 0 40px rgba(255, 215, 0, 0.5);
+        text-shadow: 0 0 15px rgba(255, 215, 0, 0.9),
+                     0 0 25px rgba(255, 215, 0, 0.7),
+                     0 0 40px rgba(255, 215, 0, 0.5);
     }
     100% {
-        text-shadow: 
-            0 0 20px rgba(255, 215, 0, 1),
-            0 0 30px rgba(255, 215, 0, 0.9),
-            0 0 50px rgba(255, 215, 0, 0.8);
+        text-shadow: 0 0 20px rgba(255, 215, 0, 1),
+                     0 0 30px rgba(255, 215, 0, 0.9),
+                     0 0 50px rgba(255, 215, 0, 0.8);
     }
 }
 
@@ -89,7 +86,7 @@ button:hover, .gallery-link:hover, .back-button:hover {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
 }
 
-/* Table */
+/* Table Styling */
 table {
     width: 95%;
     max-width: 1000px;
