@@ -1,16 +1,15 @@
-/* White Water Drop Glass Design */
+/* White Frosted Glass Design System */
 :root {
-  --bg-primary: rgba(245, 245, 245, 0.7);
-  --bg-overlay: rgba(255, 255, 255, 0.35);
+  --bg-primary: rgba(255, 255, 255, 0.4); /* Frosted glass effect */
+  --bg-overlay: rgba(255, 255, 255, 0.3);
   --bg-button: rgba(255, 255, 255, 0.25);
   --text-primary: rgba(0, 0, 0, 0.9);
   --text-secondary: rgba(0, 0, 0, 0.7);
   --border-color: rgba(255, 255, 255, 0.6);
-  --shadow-color: rgba(0, 0, 0, 0.2);
-  --highlight: rgba(255, 255, 255, 0.6);
-  --blur-bg: 40px;
-  --blur-element: 14px;
-  --border-radius: 25px;
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  --blur-bg: 50px;
+  --blur-element: 15px;
+  --border-radius: 20px;
   --transition: 0.3s ease-in-out;
 }
 
@@ -28,7 +27,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Background Glass Layer */
+/* Frosted Glass Background Layer */
 body::before {
   content: "";
   position: fixed;
@@ -72,14 +71,13 @@ h1 {
 /* Mantra */
 .mantra {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 700; /* Bold */
   color: var(--text-primary);
   margin: 25px 0;
-  text-shadow: 0 0 10px var(--highlight);
-  position: relative;
+  text-shadow: 2px 2px 10px var(--shadow-color);
 }
 
-/* Glass Buttons (Water Drop Effect) */
+/* Glass Buttons */
 button, .gallery-link, .back-button {
   display: block;
   width: 85%;
@@ -87,44 +85,26 @@ button, .gallery-link, .back-button {
   margin: 16px auto;
   border: 1px solid var(--border-color);
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700; /* Bold */
   text-transform: uppercase;
   cursor: pointer;
   background: var(--bg-button);
   color: var(--text-primary);
-  border-radius: 50px;
+  border-radius: calc(var(--border-radius) - 6px);
   text-decoration: none;
   text-align: center;
   transition: all var(--transition);
   backdrop-filter: blur(var(--blur-element));
   -webkit-backdrop-filter: blur(var(--blur-element));
-  box-shadow: 0 4px 15px var(--shadow-color), inset 0 5px 10px var(--highlight);
+  box-shadow: 0 4px 15px var(--shadow-color);
   position: relative;
   overflow: hidden;
-}
-
-/* Water Drop Light Reflection */
-button::before, .gallery-link::before, .back-button::before {
-  content: "";
-  position: absolute;
-  top: -100%;
-  left: -100%;
-  width: 300%;
-  height: 100%;
-  background: radial-gradient(circle, var(--highlight) 10%, transparent 80%);
-  transform: rotate(30deg);
-  transition: transform 0.7s;
-  pointer-events: none;
 }
 
 button:hover, .gallery-link:hover, .back-button:hover {
   background: var(--bg-overlay);
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px var(--shadow-color), inset 0 8px 15px var(--highlight);
-}
-
-button:hover::before, .gallery-link:hover::before, .back-button:hover::before {
-  transform: translateX(100%) rotate(30deg);
+  box-shadow: 0 8px 25px var(--shadow-color);
 }
 
 /* Glass Table */
@@ -202,7 +182,7 @@ tr:hover td {
   }
   
   .mantra {
-    font-size: 22px;
+    font-size: 20px;
   }
   
   th, td {
