@@ -5,8 +5,6 @@
   --glass-border: rgba(255, 255, 255, 0.3);
   --text-primary: #121212;
   --text-secondary: #333;
-  --neon-blue: rgba(0, 204, 255, 0.8);
-  --neon-purple: rgba(186, 0, 255, 0.7);
   --shadow-color: rgba(0, 0, 0, 0.2);
   --blur-bg: 40px;
   --blur-element: 12px;
@@ -61,14 +59,6 @@ body::before {
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
 }
 
-/* Futuristic Glow on Hover */
-button:hover, .gallery-link:hover, .back-button:hover {
-  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
-  color: white;
-  box-shadow: 0 0 15px var(--neon-blue), 0 0 25px var(--neon-purple);
-  transform: translateY(-3px);
-}
-
 /* Cyber Glass Buttons */
 button, .gallery-link, .back-button {
   display: block;
@@ -92,24 +82,36 @@ button, .gallery-link, .back-button {
   overflow: hidden;
 }
 
-/* Neon Cyberpunk Text */
+/* Futuristic Glow on Hover */
+button:hover, .gallery-link:hover, .back-button:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(200, 200, 255, 0.4));
+  color: black;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  transform: translateY(-3px);
+}
+
+/* Cyberpunk Text */
 h1 {
   font-size: 40px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: var(--text-primary);
-  text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-purple);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
   transition: text-shadow 0.4s ease-in-out;
 }
 
-/* Floating & Bold Mantra */
+/* Floating & Glowing Mahamantra */
 .mantra {
   font-size: 26px;
-  font-weight: 700; /* Makes it bold */
-  color: var(--neon-blue); /* Cyber blue for contrast */
+  font-weight: 700; /* Bold */
+  color: black; /* Solid Black Text */
   text-transform: uppercase;
-  text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-purple);
+  text-shadow: 
+    0 0 5px rgba(255, 255, 255, 0.8), 
+    0 0 10px rgba(255, 255, 255, 0.9), 
+    0 0 15px rgba(255, 255, 255, 1), 
+    0 0 20px rgba(255, 255, 255, 0.8);
   margin: 30px 0;
   position: relative;
   animation: float 3s infinite ease-in-out, glow 1.5s infinite alternate;
@@ -122,10 +124,10 @@ h1 {
   100% { transform: translateY(0px); }
 }
 
-/* Subtle Glow Effect */
+/* Subtle White Glow Effect */
 @keyframes glow {
-  from { text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-purple); }
-  to { text-shadow: 0 0 20px var(--neon-blue), 0 0 30px var(--neon-purple); }
+  from { text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.9); }
+  to { text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 15px rgba(255, 255, 255, 1); }
 }
 
 /* Cyber Glass Table */
@@ -179,17 +181,6 @@ tr:hover td {
 .qr-code:hover {
   transform: scale(1.05);
   box-shadow: 0 20px 45px var(--shadow-color);
-}
-
-/* Floating Animation */
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-4px); }
-  100% { transform: translateY(0px); }
-}
-
-.container, button, .gallery-link, .back-button {
-  animation: float 3.5s infinite ease-in-out;
 }
 
 /* Responsive Design */
