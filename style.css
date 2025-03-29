@@ -1,34 +1,33 @@
-/* White Glass Design System */
+/* Cyber Glass Design System */
 :root {
-  --bg-primary: rgba(255, 255, 255, 0.9);
-  --bg-overlay: rgba(255, 255, 255, 0.4);
-  --glass-effect: rgba(255, 255, 255, 0.2);
-  --text-primary: rgba(0, 0, 0, 0.9);
-  --text-secondary: rgba(0, 0, 0, 0.7);
-  --border-color: rgba(255, 255, 255, 0.6);
-  --shadow-color: rgba(0, 0, 0, 0.15);
-  --glow-color: rgba(0, 162, 255, 0.6);
-  --blur-bg: 50px;
-  --blur-element: 15px;
-  --border-radius: 20px;
-  --transition: 0.3s ease-in-out;
+  --bg-primary: #f8f8f8;
+  --glass-overlay: rgba(255, 255, 255, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --text-primary: #121212;
+  --text-secondary: #333;
+  --neon-blue: rgba(0, 204, 255, 0.8);
+  --neon-purple: rgba(186, 0, 255, 0.7);
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --blur-bg: 40px;
+  --blur-element: 12px;
+  --border-radius: 22px;
+  --transition: 0.4s ease-in-out;
 }
 
 /* Base Layout */
 body {
   font-family: 'Poppins', sans-serif;
-  background: white;
+  background: var(--bg-primary);
   color: var(--text-primary);
   text-align: center;
   margin: 0;
   padding: 20px;
-  line-height: 1.6;
   min-height: 100vh;
-  overflow-x: hidden;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
 }
 
 /* Frosted Glass Background */
@@ -36,71 +35,75 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: var(--bg-primary);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(200, 200, 255, 0.5));
   backdrop-filter: blur(var(--blur-bg));
   -webkit-backdrop-filter: blur(var(--blur-bg));
   z-index: -1;
 }
 
-/* Glass Container */
+/* Cyber Glass Container */
 .container {
-  background: var(--bg-overlay);
+  background: var(--glass-overlay);
   backdrop-filter: blur(var(--blur-element));
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--glass-border);
   border-radius: var(--border-radius);
   padding: 40px;
-  max-width: 800px;
-  box-shadow: 0 10px 30px var(--shadow-color);
+  max-width: 850px;
+  box-shadow: 0 8px 20px var(--shadow-color);
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
 }
 
+/* 3D Hover Effect */
 .container:hover {
-  transform: scale(1.02);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
 }
 
-/* Neon Glow Effect */
+/* Neon Cyberpunk Text */
 h1 {
-  font-size: 36px;
+  font-size: 40px;
+  font-weight: 700;
   text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   color: var(--text-primary);
-  text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color);
-  transition: text-shadow 0.3s ease-in-out;
+  text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-purple);
+  transition: text-shadow 0.4s ease-in-out;
 }
 
-/* Buttons */
+/* Cyber Glass Buttons */
 button, .gallery-link, .back-button {
   display: block;
-  width: 85%;
+  width: 90%;
   padding: 16px;
   margin: 16px auto;
   border: none;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
   text-transform: uppercase;
   cursor: pointer;
-  background: var(--glass-effect);
+  background: var(--glass-overlay);
   color: var(--text-primary);
   border-radius: var(--border-radius);
   text-decoration: none;
   text-align: center;
   transition: all var(--transition);
   backdrop-filter: blur(var(--blur-element));
-  box-shadow: 0 4px 15px var(--shadow-color);
+  box-shadow: 0 5px 15px var(--shadow-color);
   position: relative;
   overflow: hidden;
 }
 
+/* Futuristic Glow on Hover */
 button:hover, .gallery-link:hover, .back-button:hover {
-  background: var(--bg-overlay);
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+  color: white;
+  box-shadow: 0 0 15px var(--neon-blue), 0 0 25px var(--neon-purple);
   transform: translateY(-3px);
-  box-shadow: 0 0 20px var(--glow-color);
 }
 
-/* Glowing Hover Effect */
+/* Animated Reflection */
 button::before, .gallery-link::before, .back-button::before {
   content: "";
   position: absolute;
@@ -110,9 +113,9 @@ button::before, .gallery-link::before, .back-button::before {
   height: 100%;
   background: linear-gradient(
     to right,
-    transparent 0%,
-    var(--glow-color) 50%,
-    transparent 100%
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
   );
   transform: rotate(30deg);
   transition: transform 0.7s;
@@ -122,42 +125,41 @@ button:hover::before, .gallery-link:hover::before, .back-button:hover::before {
   transform: translateX(100%) rotate(30deg);
 }
 
-/* Glass Table */
+/* Cyber Glass Table */
 table {
   width: 100%;
   margin: 30px auto;
   border-collapse: collapse;
-  background: var(--bg-overlay);
+  background: var(--glass-overlay);
   backdrop-filter: blur(var(--blur-element));
   border-radius: var(--border-radius);
   overflow: hidden;
-  box-shadow: 0 8px 25px var(--shadow-color);
-  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px var(--shadow-color);
+  border: 1px solid var(--glass-border);
 }
 
 th, td {
-  padding: 16px 18px;
+  padding: 16px 20px;
   text-align: left;
-  font-size: 15px;
+  font-size: 16px;
+  color: var(--text-secondary);
 }
 
 th {
-  background: var(--glass-effect);
-  color: var(--text-primary);
-  font-weight: 600;
-  border-bottom: 1px solid var(--border-color);
+  background: var(--glass-overlay);
+  font-weight: 700;
+  border-bottom: 2px solid var(--glass-border);
 }
 
 td {
-  color: var(--text-secondary);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 tr:hover td {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.3);
 }
 
-/* QR Code */
+/* Cyber QR Code */
 .qr-code {
   display: block;
   width: 180px;
@@ -166,41 +168,41 @@ tr:hover td {
   border-radius: var(--border-radius);
   padding: 12px;
   background: white;
-  box-shadow: 0 8px 25px var(--shadow-color);
+  box-shadow: 0 10px 30px var(--shadow-color);
   transition: transform var(--transition);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--glass-border);
 }
 
 .qr-code:hover {
   transform: scale(1.05);
-  box-shadow: 0 15px 35px var(--shadow-color);
+  box-shadow: 0 20px 45px var(--shadow-color);
 }
 
 /* Floating Animation */
 @keyframes float {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
+  50% { transform: translateY(-4px); }
   100% { transform: translateY(0px); }
 }
 
 .container, button, .gallery-link, .back-button {
-  animation: float 3s infinite ease-in-out;
+  animation: float 3.5s infinite ease-in-out;
 }
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
   .container {
-    width: 90%;
+    width: 95%;
     padding: 30px 20px;
   }
   
   button, .gallery-link, .back-button {
     width: 100%;
-    padding: 14px;
+    padding: 15px;
   }
   
   h1 {
-    font-size: 28px;
+    font-size: 30px;
   }
   
   th, td {
@@ -209,6 +211,6 @@ tr:hover td {
   }
   
   .qr-code {
-    width: 160px;
+    width: 150px;
   }
 }
