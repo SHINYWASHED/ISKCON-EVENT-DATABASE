@@ -1,178 +1,181 @@
-/* General Styles */
+/* Professional Design System - Core Styles */
+:root {
+  --primary-dark: #0e1014;
+  --primary-light: #ffffff;
+  --accent-gold: #d4af37;
+  --accent-silver: #c0c0c0;
+  --gradient-dark: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+  --gradient-gold: linear-gradient(135deg, #d4af37, #aa8c2c);
+  --box-shadow-subtle: 0 8px 16px rgba(0, 0, 0, 0.15);
+  --box-shadow-elevated: 0 12px 24px rgba(0, 0, 0, 0.2);
+  --border-radius-standard: 8px;
+  --spacing-standard: 24px;
+  --transition-standard: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+}
+
+/* Base Typography & Layout */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #0e0e0e;
-    color: white;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--primary-dark);
+  color: var(--primary-light);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
 }
 
-/* Heading */
+/* Heading - Professional Styling */
 h1 {
-    font-size: 48px;
-    text-transform: uppercase;
-    margin-top: 20px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    background: linear-gradient(90deg, #ffffff, #c0c0c0);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 4px 4px 20px rgba(255, 255, 255, 0.5);
-    will-change: transform;
+  font-size: 42px;
+  text-transform: uppercase;
+  margin: var(--spacing-standard) 0;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 1.5px;
+  background: linear-gradient(90deg, var(--primary-light), var(--accent-silver));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  will-change: transform;
 }
 
-/* Hare Krishna Mahamantra */
+/* Mantra Styling - Refined */
 .mantra {
-    font-size: 32px;
-    font-weight: bold;
-    color: #FFD700;
-    text-align: center;
-    margin-top: 15px;
-    text-shadow: 0 0 15px rgba(255, 215, 0, 0.9);
-    animation: glow 1.8s infinite alternate ease-in-out;
-    will-change: text-shadow;
+  font-size: 28px;
+  font-weight: var(--font-weight-medium);
+  color: var(--accent-gold);
+  text-align: center;
+  margin: var(--spacing-standard) 0;
+  animation: subtle-glow 3s infinite alternate ease-in-out;
+  will-change: opacity, text-shadow;
 }
 
-/* Glowing Effect Animation - Optimized */
-@keyframes glow {
-    to {
-        text-shadow: 0 0 20px rgba(255, 215, 0, 1),
-                     0 0 30px rgba(255, 215, 0, 0.9),
-                     0 0 50px rgba(255, 215, 0, 0.8);
-    }
+@keyframes subtle-glow {
+  to {
+    text-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
+  }
 }
 
-/* Container */
+/* Container - Sophisticated Glass Effect */
 .container {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    padding: 30px;
-    border-radius: 15px;
-    max-width: 900px;
-    margin: 40px auto;
-    box-shadow: 0 12px 20px rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: var(--spacing-standard);
+  border-radius: var(--border-radius-standard);
+  max-width: 900px;
+  margin: 40px auto;
+  box-shadow: var(--box-shadow-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Buttons */
+/* Interactive Elements - Professional Button Design */
 button, .gallery-link, .back-button {
-    display: block;
-    width: 85%;
-    padding: 14px;
-    margin: 15px auto;
-    border: none;
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    background: linear-gradient(90deg, #1c1c1c, #444);
-    color: white;
-    border-radius: 12px;
-    text-decoration: none;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
-    will-change: transform;
+  display: inline-block;
+  width: auto;
+  min-width: 180px;
+  padding: 12px 24px;
+  margin: 12px;
+  border: none;
+  font-size: 16px;
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  cursor: pointer;
+  background: var(--gradient-dark);
+  color: var(--primary-light);
+  border-radius: var(--border-radius-standard);
+  text-decoration: none;
+  text-align: center;
+  transition: transform var(--transition-standard), 
+              box-shadow var(--transition-standard),
+              background-color var(--transition-standard);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
+  will-change: transform;
 }
 
 button:hover, .gallery-link:hover, .back-button:hover {
-    background: linear-gradient(90deg, #444, #1c1c1c);
-    transform: scale(1.08);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-elevated);
+  background: var(--gradient-gold);
 }
 
-/* Table Styling */
+/* Table Styling - Executive Design */
 table {
-    width: 95%;
-    max-width: 1000px;
-    margin: 25px auto;
-    border-collapse: collapse;
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+  width: 100%;
+  margin: var(--spacing-standard) auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: rgba(26, 26, 26, 0.6);
+  border-radius: var(--border-radius-standard);
+  overflow: hidden;
+  box-shadow: var(--box-shadow-subtle);
 }
 
 th {
-    background: linear-gradient(90deg, #222, #444);
-    color: white;
-    padding: 16px;
-    text-align: center;
-    font-size: 18px;
-    border-bottom: 2px solid white;
+  background: var(--gradient-dark);
+  color: var(--primary-light);
+  padding: 16px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: var(--font-weight-medium);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 td {
-    padding: 14px;
-    text-align: center;
-    font-size: 16px;
-    color: #ddd;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-tr:nth-child(even) {
-    background: rgba(255, 255, 255, 0.08);
+tr:last-child td {
+  border-bottom: none;
 }
 
 tr:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transition: background 0.3s ease;
+  background: rgba(255, 255, 255, 0.03);
+  transition: background var(--transition-standard);
 }
 
-/* QR Code Styling */
+/* QR Code Styling - Premium Look */
 .qr-code {
-    display: block;
-    width: 220px;
-    height: auto;
-    margin: 25px auto;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
-    transition: transform 0.3s ease;
-    border: 2px solid white;
-    padding: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    will-change: transform;
+  display: block;
+  width: 180px;
+  height: auto;
+  margin: var(--spacing-standard) auto;
+  border-radius: var(--border-radius-standard);
+  box-shadow: var(--box-shadow-subtle);
+  transition: transform var(--transition-standard);
+  padding: 8px;
+  background: white;
+  will-change: transform;
 }
 
 .qr-code:hover {
-    transform: scale(1.12);
+  transform: scale(1.05);
+  box-shadow: var(--box-shadow-elevated);
 }
 
-/* Event Gallery */
-.gallery-container {
-    margin-top: 30px;
-}
-
-/* Mobile Responsive */
+/* Responsive Design - Professional Adaptations */
 @media screen and (max-width: 768px) {
-    h1 {
-        font-size: 38px;
-    }
-
-    .container {
-        width: 95%;
-        padding: 20px;
-    }
-
-    table {
-        width: 100%;
-    }
-
-    th, td {
-        padding: 12px;
-        font-size: 14px;
-    }
-
-    .gallery-link, .back-button {
-        font-size: 16px;
-        padding: 14px 30px;
-    }
-
-    .qr-code {
-        width: 160px;
-    }
+  h1 {
+    font-size: 32px;
+  }
+  
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+  
+  button, .gallery-link, .back-button {
+    width: 100%;
+    margin: 10px 0;
+  }
+  
+  th, td {
+    padding: 12px 10px;
+  }
 }
