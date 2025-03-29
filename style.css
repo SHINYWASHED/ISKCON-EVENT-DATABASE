@@ -1,181 +1,201 @@
-/* Professional Design System - Core Styles */
+/* Enterprise-Grade Design System */
 :root {
-  --primary-dark: #0e1014;
-  --primary-light: #ffffff;
+  --primary-bg: #0a0c14;
+  --secondary-bg: #141824;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
   --accent-gold: #d4af37;
-  --accent-silver: #c0c0c0;
-  --gradient-dark: linear-gradient(135deg, #1a1a1a, #2d2d2d);
-  --gradient-gold: linear-gradient(135deg, #d4af37, #aa8c2c);
-  --box-shadow-subtle: 0 8px 16px rgba(0, 0, 0, 0.15);
-  --box-shadow-elevated: 0 12px 24px rgba(0, 0, 0, 0.2);
-  --border-radius-standard: 8px;
-  --spacing-standard: 24px;
-  --transition-standard: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-bold: 700;
+  --accent-gold-muted: rgba(212, 175, 55, 0.7);
+  --button-bg: #202433;
+  --button-hover: #2d324a;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.25);
+  --shadow-button: 0 4px 10px rgba(0, 0, 0, 0.2);
+  --border-radius: 6px;
+  --spacing-sm: 12px;
+  --spacing-md: 20px;
+  --spacing-lg: 30px;
+  --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Base Typography & Layout */
+/* Base Layout */
 body {
-  font-family: 'Poppins', sans-serif;
-  background: var(--primary-dark);
-  color: var(--primary-light);
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--primary-bg);
+  color: var(--text-primary);
   text-align: center;
   margin: 0;
   padding: 0;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Heading - Professional Styling */
+/* Typography */
 h1 {
-  font-size: 42px;
+  font-size: 32px;
   text-transform: uppercase;
-  margin: var(--spacing-standard) 0;
-  font-weight: var(--font-weight-bold);
-  letter-spacing: 1.5px;
-  background: linear-gradient(90deg, var(--primary-light), var(--accent-silver));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  will-change: transform;
-}
-
-/* Mantra Styling - Refined */
-.mantra {
-  font-size: 28px;
-  font-weight: var(--font-weight-medium);
-  color: var(--accent-gold);
-  text-align: center;
-  margin: var(--spacing-standard) 0;
-  animation: subtle-glow 3s infinite alternate ease-in-out;
-  will-change: opacity, text-shadow;
-}
-
-@keyframes subtle-glow {
-  to {
-    text-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
-  }
-}
-
-/* Container - Sophisticated Glass Effect */
-.container {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  padding: var(--spacing-standard);
-  border-radius: var(--border-radius-standard);
-  max-width: 900px;
-  margin: 40px auto;
-  box-shadow: var(--box-shadow-subtle);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* Interactive Elements - Professional Button Design */
-button, .gallery-link, .back-button {
+  margin: var(--spacing-md) 0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
   display: inline-block;
-  width: auto;
-  min-width: 180px;
-  padding: 12px 24px;
-  margin: 12px;
+  padding-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  width: 40%;
+  height: 2px;
+  background: var(--accent-gold);
+}
+
+/* Mantra - Elegant */
+.mantra {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--accent-gold);
+  margin: var(--spacing-md) 0;
+  opacity: 0.95;
+}
+
+/* Main Container */
+.container {
+  background: var(--secondary-bg);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  max-width: 800px;
+  margin: var(--spacing-lg) auto;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Vertical Button Layout */
+button, .gallery-link, .back-button {
+  display: block;
+  width: 85%;
+  padding: 14px;
+  margin: 12px auto;
   border: none;
   font-size: 16px;
-  font-weight: var(--font-weight-medium);
+  font-weight: 500;
+  letter-spacing: 0.3px;
   text-transform: uppercase;
   cursor: pointer;
-  background: var(--gradient-dark);
-  color: var(--primary-light);
-  border-radius: var(--border-radius-standard);
+  background: var(--button-bg);
+  color: var(--text-primary);
+  border-radius: var(--border-radius);
   text-decoration: none;
   text-align: center;
-  transition: transform var(--transition-standard), 
-              box-shadow var(--transition-standard),
-              background-color var(--transition-standard);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  letter-spacing: 0.5px;
-  will-change: transform;
+  transition: all var(--transition);
+  box-shadow: var(--shadow-button);
+  position: relative;
+  overflow: hidden;
 }
 
 button:hover, .gallery-link:hover, .back-button:hover {
+  background: var(--button-hover);
   transform: translateY(-2px);
-  box-shadow: var(--box-shadow-elevated);
-  background: var(--gradient-gold);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Table Styling - Executive Design */
+button::after, .gallery-link::after, .back-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-gold-muted);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+button:hover::after, .gallery-link:hover::after, .back-button:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Table Styling - Professional */
 table {
   width: 100%;
-  margin: var(--spacing-standard) auto;
+  margin: var(--spacing-md) auto;
   border-collapse: separate;
   border-spacing: 0;
-  background: rgba(26, 26, 26, 0.6);
-  border-radius: var(--border-radius-standard);
+  border-radius: var(--border-radius);
   overflow: hidden;
-  box-shadow: var(--box-shadow-subtle);
+  box-shadow: var(--shadow-card);
 }
 
 th {
-  background: var(--gradient-dark);
-  color: var(--primary-light);
-  padding: 16px;
+  background: rgba(20, 24, 36, 0.95);
+  color: var(--text-primary);
+  padding: 16px 20px;
   text-align: left;
-  font-size: 16px;
-  font-weight: var(--font-weight-medium);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 15px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 td {
-  padding: 14px 16px;
+  padding: 14px 20px;
   text-align: left;
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 14px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  background: rgba(32, 38, 56, 0.6);
 }
 
 tr:last-child td {
   border-bottom: none;
 }
 
-tr:hover {
-  background: rgba(255, 255, 255, 0.03);
-  transition: background var(--transition-standard);
+tr:hover td {
+  background: rgba(45, 52, 74, 0.6);
 }
 
-/* QR Code Styling - Premium Look */
+/* QR Code - Premium */
 .qr-code {
   display: block;
   width: 180px;
   height: auto;
-  margin: var(--spacing-standard) auto;
-  border-radius: var(--border-radius-standard);
-  box-shadow: var(--box-shadow-subtle);
-  transition: transform var(--transition-standard);
+  margin: var(--spacing-lg) auto;
+  border-radius: var(--border-radius);
   padding: 8px;
   background: white;
-  will-change: transform;
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition);
 }
 
 .qr-code:hover {
-  transform: scale(1.05);
-  box-shadow: var(--box-shadow-elevated);
+  transform: scale(1.03);
 }
 
-/* Responsive Design - Professional Adaptations */
+/* Responsive Design */
 @media screen and (max-width: 768px) {
-  h1 {
-    font-size: 32px;
-  }
-  
   .container {
     width: 90%;
-    padding: 20px;
+    padding: var(--spacing-md);
   }
   
   button, .gallery-link, .back-button {
     width: 100%;
-    margin: 10px 0;
+  }
+  
+  h1 {
+    font-size: 28px;
+  }
+  
+  .mantra {
+    font-size: 20px;
   }
   
   th, td {
-    padding: 12px 10px;
+    padding: 12px 15px;
+    font-size: 13px;
   }
 }
