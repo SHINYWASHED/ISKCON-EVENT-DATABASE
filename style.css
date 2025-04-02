@@ -39,6 +39,35 @@ body::before {
   z-index: -1;
 }
 
+/* Website Logo */
+.logo {
+  width: 100px; /* Adjust the size as needed */
+  height: auto;
+  display: block;
+  margin: 10px auto;
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 15px var(--shadow-color);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+/* Hover Effect for Logo */
+.logo:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.5);
+}
+
+/* Align Logo in Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* Adjust spacing between logo and title */
+}
+
+.header h1 {
+  margin: 0;
+}
+
 /* Cyber Glass Container */
 .container {
   background: var(--glass-overlay);
@@ -104,8 +133,8 @@ h1 {
 /* Floating & Glowing Mahamantra */
 .mantra {
   font-size: 26px;
-  font-weight: 700; /* Bold */
-  color: black; /* Solid Black Text */
+  font-weight: 700;
+  color: black;
   text-transform: uppercase;
   text-shadow: 
     0 0 5px rgba(255, 255, 255, 0.8), 
