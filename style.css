@@ -1,7 +1,7 @@
 /* Cyber Glass Design System */
 :root {
-  --text-primary: #121212;
-  --text-secondary: #333;
+  --text-primary: #ffffff; /* Changed text-primary to white */
+  --text-secondary: #ffffff; /* Changed text-secondary to white */
   --shadow-color: rgba(0, 0, 0, 0.2);
   --border-radius: 22px;
   --transition: 0.4s ease-in-out;
@@ -12,7 +12,7 @@ body {
   font-family: 'Poppins', sans-serif;
   background: url('background-image.webp') no-repeat center center fixed;
   background-size: cover;
-  color: var(--text-primary);
+  color: var(--text-primary); /* Text color changed to white */
   text-align: center;
   margin: 0;
   padding: 20px;
@@ -38,7 +38,7 @@ body {
 
 .floating-images img {
   position: absolute;
-  width: 130px;
+  width: 200px;
   opacity: 0.8;
   animation: floatUpDown 6s ease-in-out infinite alternate;
   filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.4));
@@ -110,7 +110,7 @@ button, .gallery-link, .back-button {
   text-transform: uppercase;
   cursor: pointer;
   background: rgba(255, 255, 255, 0.3);
-  color: var(--text-primary);
+  color: var(--text-primary); /* Text color changed to white */
   border-radius: var(--border-radius);
   text-decoration: none;
   text-align: center;
@@ -131,7 +131,7 @@ h1 {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--text-primary);
+  color: var(--text-primary); /* Heading color changed to white */
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
@@ -139,7 +139,7 @@ h1 {
 .mantra {
   font-size: 26px;
   font-weight: 700;
-  color: black;
+  color: white; /* Mantra text color changed to white */
   text-transform: uppercase;
   text-shadow:
     0 0 5px rgba(255, 255, 255, 0.8),
@@ -176,7 +176,7 @@ th, td {
   padding: 16px 20px;
   text-align: left;
   font-size: 16px;
-  color: var(--text-secondary);
+  color: white; /* Table text color changed to white */
 }
 
 th {
