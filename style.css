@@ -221,7 +221,7 @@ tr:hover td {
 
 .float-img {
   position: absolute;
-  width: 100px;
+  width: 130px;
   opacity: 0.85;
   animation: floatUpDown 6s ease-in-out infinite alternate;
   filter: drop-shadow(0 0 8px rgba(0,0,0,0.3));
