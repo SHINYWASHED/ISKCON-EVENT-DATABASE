@@ -41,7 +41,7 @@ body::before {
 
 /* Website Logo */
 .logo {
-  width: 100px; /* Adjust the size as needed */
+  width: 100px;
   height: auto;
   display: block;
   margin: 10px auto;
@@ -50,73 +50,21 @@ body::before {
   transition: transform var(--transition), box-shadow var(--transition);
 }
 
-/* Hover Effect for Logo */
 .logo:hover {
   transform: scale(1.1);
   box-shadow: 0 10px 30px rgba(255, 255, 255, 0.5);
 }
 
-/* Align Logo in Header */
+/* Header */
 .header {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px; /* Adjust spacing between logo and title */
+  gap: 15px;
 }
 
 .header h1 {
   margin: 0;
-}
-
-/* Cyber Glass Container */
-.container {
-  background: var(--glass-overlay);
-  backdrop-filter: blur(var(--blur-element));
-  border: 2px solid var(--glass-border);
-  border-radius: var(--border-radius);
-  padding: 40px;
-  max-width: 850px;
-  box-shadow: 0 8px 20px var(--shadow-color);
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-/* 3D Hover Effect */
-.container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-}
-
-/* Cyber Glass Buttons */
-button, .gallery-link, .back-button {
-  display: block;
-  width: 90%;
-  padding: 16px;
-  margin: 16px auto;
-  border: none;
-  font-size: 17px;
-  font-weight: 600;
-  text-transform: uppercase;
-  cursor: pointer;
-  background: var(--glass-overlay);
-  color: var(--text-primary);
-  border-radius: var(--border-radius);
-  text-decoration: none;
-  text-align: center;
-  transition: all var(--transition);
-  backdrop-filter: blur(var(--blur-element));
-  box-shadow: 0 5px 15px var(--shadow-color);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Futuristic Glow on Hover */
-button:hover, .gallery-link:hover, .back-button:hover {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(200, 200, 255, 0.4));
-  color: black;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-  transform: translateY(-3px);
 }
 
 /* Cyberpunk Text */
@@ -146,17 +94,64 @@ h1 {
   animation: float 3s infinite ease-in-out, glow 1.5s infinite alternate;
 }
 
-/* Floating Animation */
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-8px); }
   100% { transform: translateY(0px); }
 }
 
-/* Subtle White Glow Effect */
 @keyframes glow {
   from { text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.9); }
   to { text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 15px rgba(255, 255, 255, 1); }
+}
+
+/* Cyber Glass Container */
+.container {
+  background: var(--glass-overlay);
+  backdrop-filter: blur(var(--blur-element));
+  border: 2px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  padding: 40px;
+  max-width: 850px;
+  box-shadow: 0 8px 20px var(--shadow-color);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* Cyber Glass Buttons */
+button, .gallery-link, .back-button {
+  display: block;
+  width: 90%;
+  padding: 16px;
+  margin: 16px auto;
+  border: none;
+  font-size: 17px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: var(--glass-overlay);
+  color: var(--text-primary);
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  text-align: center;
+  transition: all var(--transition);
+  backdrop-filter: blur(var(--blur-element));
+  box-shadow: 0 5px 15px var(--shadow-color);
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover, .gallery-link:hover, .back-button:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(200, 200, 255, 0.4));
+  color: black;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  transform: translateY(-3px);
 }
 
 /* Cyber Glass Table */
@@ -212,32 +207,66 @@ tr:hover td {
   box-shadow: 0 20px 45px var(--shadow-color);
 }
 
+/* Floating Images (4) */
+.floating-images {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.float-img {
+  position: absolute;
+  width: 100px;
+  opacity: 0.85;
+  animation: floatUpDown 6s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 8px rgba(0,0,0,0.3));
+}
+
+.img1 { top: 15%; left: 5%; animation-delay: 0s; }
+.img2 { top: 35%; right: 10%; animation-delay: 1s; }
+.img3 { bottom: 12%; left: 12%; animation-delay: 2s; }
+.img4 { bottom: 20%; right: 8%; animation-delay: 0.5s; }
+
+@keyframes floatUpDown {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-30px); }
+}
+
 /* Responsive Design */
 @media screen and (max-width: 768px) {
   .container {
     width: 95%;
     padding: 30px 20px;
   }
-  
+
   button, .gallery-link, .back-button {
     width: 100%;
     padding: 15px;
   }
-  
+
   h1 {
     font-size: 30px;
   }
-  
+
   .mantra {
     font-size: 24px;
   }
-  
+
   th, td {
     padding: 14px;
     font-size: 14px;
   }
-  
+
   .qr-code {
     width: 150px;
+  }
+
+  .float-img {
+    width: 70px;
   }
 }
