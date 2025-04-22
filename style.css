@@ -44,10 +44,10 @@ body {
   filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.4));
 }
 
-.f1 { top: 10%; left: 5%; animation-delay: 0s; }
-.f2 { top: 25%; right: 10%; animation-delay: 1s; }
-.f3 { bottom: 15%; left: 8%; animation-delay: 2s; }
-.f4 { bottom: 25%; right: 6%; animation-delay: 0.5s; }
+.f1 { top: 15%; left: 5%; animation-delay: 0s; }
+.f2 { top: 35%; right: 10%; animation-delay: 1s; }
+.f3 { bottom: 12%; left: 12%; animation-delay: 2s; }
+.f4 { bottom: 20%; right: 8%; animation-delay: 0.5s; }
 
 @keyframes floatUpDown {
   0% { transform: translateY(0); }
