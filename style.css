@@ -53,7 +53,7 @@ body::before {
 
 .float-img {
   position: absolute;
-  width: 130px;
+  width: 180px;
   opacity: 0.9;
   animation: floatUpDown 6s ease-in-out infinite alternate;
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.35));
