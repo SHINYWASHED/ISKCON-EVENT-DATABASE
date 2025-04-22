@@ -1,12 +1,9 @@
-/* Cyber Glass Design System */
+/* Cyber Wood Design System */
 :root {
   --bg-primary: #f8f8f8;
-  --glass-overlay: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.3);
   --text-primary: #121212;
   --text-secondary: #333;
   --shadow-color: rgba(0, 0, 0, 0.2);
-  --blur-bg: 40px;
   --blur-element: 12px;
   --border-radius: 22px;
   --transition: 0.4s ease-in-out;
@@ -15,7 +12,7 @@
 /* Base Layout */
 body {
   font-family: 'Poppins', sans-serif;
-  background: url('background-image.webp') no-repeat center center fixed;
+  background: url('background=image,webp') no-repeat center center fixed; /* Wood texture background */
   background-size: cover;
   color: var(--text-primary);
   text-align: center;
@@ -27,17 +24,6 @@ body {
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
-}
-
-/* Frosted Glass Background */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(200, 200, 255, 0.5));
-  backdrop-filter: blur(var(--blur-bg));
-  -webkit-backdrop-filter: blur(var(--blur-bg));
-  z-index: -1;
 }
 
 /* Floating WebP Images */
@@ -71,11 +57,10 @@ body::before {
   100% { transform: translateY(-30px); }
 }
 
-/* Cyber Glass Container */
+/* Cyber Wood Container */
 .container {
-  background: var(--glass-overlay);
-  backdrop-filter: blur(var(--blur-element));
-  border: 2px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.8); /* Slight transparency for content to stand out */
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--border-radius);
   padding: 40px;
   max-width: 850px;
@@ -101,18 +86,17 @@ button, .gallery-link, .back-button {
   font-weight: 600;
   text-transform: uppercase;
   cursor: pointer;
-  background: var(--glass-overlay);
+  background: rgba(255, 255, 255, 0.7); /* Slight transparency */
   color: var(--text-primary);
   border-radius: var(--border-radius);
   text-decoration: none;
   text-align: center;
   transition: all var(--transition);
-  backdrop-filter: blur(var(--blur-element));
   box-shadow: 0 5px 15px var(--shadow-color);
 }
 
 button:hover, .gallery-link:hover, .back-button:hover {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(200, 200, 255, 0.4));
+  background: rgba(255, 255, 255, 0.9);
   color: black;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
   transform: translateY(-3px);
@@ -159,12 +143,11 @@ table {
   width: 100%;
   margin: 30px auto;
   border-collapse: collapse;
-  background: var(--glass-overlay);
-  backdrop-filter: blur(var(--blur-element));
+  background: rgba(255, 255, 255, 0.8);
   border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: 0 10px 30px var(--shadow-color);
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 th, td {
@@ -175,9 +158,9 @@ th, td {
 }
 
 th {
-  background: var(--glass-overlay);
+  background: rgba(255, 255, 255, 0.7);
   font-weight: 700;
-  border-bottom: 2px solid var(--glass-border);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 td {
@@ -199,7 +182,7 @@ tr:hover td {
   background: white;
   box-shadow: 0 10px 30px var(--shadow-color);
   transition: transform var(--transition);
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .qr-code:hover {
