@@ -1,7 +1,7 @@
 /* Cyber Glass Design System */
 :root {
   --bg-primary: #f8f8f8;
-  --glass-overlay: rgba(255, 255, 255, 0.2);
+  --glass-overlay: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.3);
   --text-primary: #121212;
   --text-secondary: #333;
