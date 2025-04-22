@@ -1,10 +1,10 @@
-/* Design Variables */
 :root {
+  --bg-primary: #f8f8f8;
   --text-primary: #121212;
   --text-secondary: #333;
-  --border-radius: 20px;
-  --transition: 0.3s ease-in-out;
   --shadow-color: rgba(0, 0, 0, 0.15);
+  --border-radius: 22px;
+  --transition: 0.3s ease-in-out;
 }
 
 /* Base Layout */
@@ -15,67 +15,39 @@ body {
   color: var(--text-primary);
   text-align: center;
   margin: 0;
-  padding: 40px 20px;
+  padding: 20px;
   min-height: 100vh;
-  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-/* Floating WebP Images */
-.floating-images {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: -1;
-}
-
-.float-img {
-  position: absolute;
-  width: 130px;
-  opacity: 0.9;
-  animation: floatUpDown 6s ease-in-out infinite alternate;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
-}
-
-.img1 { top: 15%; left: 5%; animation-delay: 0s; }
-.img2 { top: 35%; right: 10%; animation-delay: 1s; }
-.img3 { bottom: 12%; left: 12%; animation-delay: 2s; }
-.img4 { bottom: 20%; right: 8%; animation-delay: 0.5s; }
-
-@keyframes floatUpDown {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-30px); }
+  justify-content: flex-start;
+  overflow-x: hidden;
 }
 
 /* Heading */
 h1 {
-  font-size: 42px;
+  font-size: 40px;
   font-weight: 700;
+  text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 20px;
-  color: white;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  margin-top: 20px;
+  color: var(--text-primary);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 /* Mahamantra */
 .mantra {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 700;
-  color: white;
+  color: black;
   text-transform: uppercase;
   margin: 30px 0;
   animation: float 3s infinite ease-in-out, glow 1.5s infinite alternate;
-  text-shadow:
-    0 0 5px #fff,
-    0 0 10px #fff,
-    0 0 15px #ffd700,
-    0 0 20px #ffa500;
+  text-shadow: 
+    0 0 5px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(255, 255, 255, 0.9),
+    0 0 15px rgba(255, 255, 255, 1),
+    0 0 20px rgba(255, 255, 255, 0.8);
 }
 
 @keyframes float {
@@ -85,126 +57,62 @@ h1 {
 }
 
 @keyframes glow {
-  from { text-shadow: 0 0 10px #fff, 0 0 20px #ffd700; }
-  to { text-shadow: 0 0 15px #fff, 0 0 25px #ffa500; }
+  from { text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); }
+  to { text-shadow: 0 0 10px rgba(255, 255, 255, 1); }
 }
 
-/* Button Row: One Line */
-.button-row {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  gap: 14px;
-  padding: 20px 0;
-  justify-content: center;
+/* Container */
+.container {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: var(--border-radius);
+  padding: 40px 20px;
+  max-width: 500px;
   width: 100%;
-  max-width: 1200px;
+  box-shadow: 0 8px 20px var(--shadow-color);
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
 
-.button-row button,
-.button-row .gallery-link {
-  flex: 0 0 auto;
-  white-space: nowrap;
-  background: white;
-  padding: 14px 24px;
-  font-size: 16px;
+/* Buttons */
+button, .gallery-button {
+  width: 100%;
+  max-width: 400px;
+  padding: 16px 24px;
+  font-size: 17px;
   font-weight: 600;
-  text-transform: capitalize;
-  color: var(--text-primary);
   border: none;
   border-radius: var(--border-radius);
   cursor: pointer;
+  background: white;
+  color: var(--text-primary);
   box-shadow: 0 5px 15px var(--shadow-color);
-  transition: var(--transition);
-  text-decoration: none;
+  transition: transform 0.3s ease;
 }
 
-.button-row button:hover,
-.button-row .gallery-link:hover {
-  transform: scale(1.05);
+button:hover, .gallery-button:hover {
   background: #f0f0f0;
+  transform: translateY(-4px);
 }
 
-/* QR Code */
-.qr-code {
-  display: block;
-  width: 180px;
-  height: auto;
-  margin: 30px auto;
-  border-radius: var(--border-radius);
-  padding: 12px;
-  background: white;
-  box-shadow: 0 10px 30px var(--shadow-color);
-  transition: transform var(--transition);
-  border: 1px solid #ccc;
-}
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 30px 15px;
+  }
 
-.qr-code:hover {
-  transform: scale(1.05);
-}
+  button, .gallery-button {
+    font-size: 15px;
+    padding: 14px;
+  }
 
-/* Table Styling (optional if you use tables later) */
-table {
-  width: 100%;
-  margin: 30px auto;
-  border-collapse: collapse;
-  background: white;
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  box-shadow: 0 10px 30px var(--shadow-color);
-  border: 1px solid #ccc;
-}
-
-th, td {
-  padding: 16px 20px;
-  text-align: left;
-  font-size: 16px;
-  color: var(--text-secondary);
-}
-
-th {
-  font-weight: 700;
-  border-bottom: 2px solid #ccc;
-}
-
-td {
-  border-bottom: 1px solid #eaeaea;
-}
-
-tr:hover td {
-  background: #f9f9f9;
-}
-
-/* Responsive Adjustments */
-@media screen and (max-width: 768px) {
   h1 {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   .mantra {
-    font-size: 18px;
-  }
-
-  .float-img {
-    width: 80px;
-  }
-
-  .button-row {
-    gap: 10px;
-  }
-
-  .button-row button,
-  .button-row .gallery-link {
-    padding: 12px 18px;
-    font-size: 14px;
-  }
-
-  .qr-code {
-    width: 150px;
-  }
-
-  th, td {
-    font-size: 14px;
-    padding: 12px 14px;
+    font-size: 22px;
   }
 }
